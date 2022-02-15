@@ -7,15 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F7A2E4827B998F4007CD04B /* UILabel + extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7A2E4727B998F4007CD04B /* UILabel + extensions.swift */; };
+		1F7A2E4A27B9A335007CD04B /* HeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7A2E4927B9A335007CD04B /* HeaderLabel.swift */; };
 		1F958E6D27B98A0F000E7666 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F958E6C27B98A0F000E7666 /* AppDelegate.swift */; };
 		1F958E6F27B98A0F000E7666 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F958E6E27B98A0F000E7666 /* SceneDelegate.swift */; };
 		1F958E7127B98A0F000E7666 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F958E7027B98A0F000E7666 /* ViewController.swift */; };
 		1F958E7427B98A0F000E7666 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F958E7227B98A0F000E7666 /* Main.storyboard */; };
 		1F958E7627B98A11000E7666 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F958E7527B98A11000E7666 /* Assets.xcassets */; };
 		1F958E7927B98A11000E7666 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F958E7727B98A11000E7666 /* LaunchScreen.storyboard */; };
+		1F958E8127B98B75000E7666 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F958E8027B98B75000E7666 /* User.swift */; };
+		1F958E8527B98ED7000E7666 /* TextFieldFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F958E8427B98ED7000E7666 /* TextFieldFormView.swift */; };
+		1FDA205627BA46A600C04FA7 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA205527BA46A600C04FA7 /* CustomButton.swift */; };
+		1FDA205827BA540200C04FA7 /* UIButton + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA205727BA540200C04FA7 /* UIButton + Extensions.swift */; };
+		1FDA205A27BA589500C04FA7 /* UIImageView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA205927BA589500C04FA7 /* UIImageView + Extensions.swift */; };
+		1FDA205C27BABF3500C04FA7 /* ChildInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA205B27BABF3500C04FA7 /* ChildInfoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F7A2E4727B998F4007CD04B /* UILabel + extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + extensions.swift"; sourceTree = "<group>"; };
+		1F7A2E4927B9A335007CD04B /* HeaderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderLabel.swift; sourceTree = "<group>"; };
 		1F958E6927B98A0F000E7666 /* TZ_Alef_DiuminP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TZ_Alef_DiuminP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F958E6C27B98A0F000E7666 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F958E6E27B98A0F000E7666 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +34,12 @@
 		1F958E7527B98A11000E7666 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F958E7827B98A11000E7666 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F958E7A27B98A11000E7666 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F958E8027B98B75000E7666 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1F958E8427B98ED7000E7666 /* TextFieldFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFormView.swift; sourceTree = "<group>"; };
+		1FDA205527BA46A600C04FA7 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		1FDA205727BA540200C04FA7 /* UIButton + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extensions.swift"; sourceTree = "<group>"; };
+		1FDA205927BA589500C04FA7 /* UIImageView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extensions.swift"; sourceTree = "<group>"; };
+		1FDA205B27BABF3500C04FA7 /* ChildInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildInfoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +53,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F7A2E4627B998CB007CD04B /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				1F7A2E4727B998F4007CD04B /* UILabel + extensions.swift */,
+				1FDA205727BA540200C04FA7 /* UIButton + Extensions.swift */,
+				1FDA205927BA589500C04FA7 /* UIImageView + Extensions.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
 		1F958E6027B98A0F000E7666 = {
 			isa = PBXGroup;
 			children = (
@@ -58,13 +84,35 @@
 			children = (
 				1F958E6C27B98A0F000E7666 /* AppDelegate.swift */,
 				1F958E6E27B98A0F000E7666 /* SceneDelegate.swift */,
+				1F958E8227B98E59000E7666 /* Models */,
 				1F958E7027B98A0F000E7666 /* ViewController.swift */,
-				1F958E7227B98A0F000E7666 /* Main.storyboard */,
+				1FDA205B27BABF3500C04FA7 /* ChildInfoTableViewCell.swift */,
+				1F958E8327B98E7B000E7666 /* Extensions */,
 				1F958E7527B98A11000E7666 /* Assets.xcassets */,
+				1F958E7227B98A0F000E7666 /* Main.storyboard */,
 				1F958E7727B98A11000E7666 /* LaunchScreen.storyboard */,
 				1F958E7A27B98A11000E7666 /* Info.plist */,
 			);
 			path = TZ_Alef_DiuminP;
+			sourceTree = "<group>";
+		};
+		1F958E8227B98E59000E7666 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1F958E8027B98B75000E7666 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1F958E8327B98E7B000E7666 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1F958E8427B98ED7000E7666 /* TextFieldFormView.swift */,
+				1F7A2E4927B9A335007CD04B /* HeaderLabel.swift */,
+				1FDA205527BA46A600C04FA7 /* CustomButton.swift */,
+				1F7A2E4627B998CB007CD04B /* UIKit */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +185,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F7A2E4A27B9A335007CD04B /* HeaderLabel.swift in Sources */,
+				1F7A2E4827B998F4007CD04B /* UILabel + extensions.swift in Sources */,
+				1F958E8527B98ED7000E7666 /* TextFieldFormView.swift in Sources */,
+				1F958E8127B98B75000E7666 /* User.swift in Sources */,
+				1FDA205A27BA589500C04FA7 /* UIImageView + Extensions.swift in Sources */,
+				1FDA205627BA46A600C04FA7 /* CustomButton.swift in Sources */,
 				1F958E7127B98A0F000E7666 /* ViewController.swift in Sources */,
 				1F958E6D27B98A0F000E7666 /* AppDelegate.swift in Sources */,
+				1FDA205827BA540200C04FA7 /* UIButton + Extensions.swift in Sources */,
+				1FDA205C27BABF3500C04FA7 /* ChildInfoTableViewCell.swift in Sources */,
 				1F958E6F27B98A0F000E7666 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,6 +345,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4V2Z42C6DZ;
 				INFOPLIST_FILE = TZ_Alef_DiuminP/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,7 +353,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Diumin.TZ-Alef-DiuminP";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -308,6 +365,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4V2Z42C6DZ;
 				INFOPLIST_FILE = TZ_Alef_DiuminP/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,7 +373,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Diumin.TZ-Alef-DiuminP";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
