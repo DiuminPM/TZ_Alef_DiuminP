@@ -154,6 +154,16 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, CustomCellDelegate {
+    func didPressReturn(for cell: UITableViewCell) {
+        let indexPath = childInfoTableView.indexPath(for: cell)
+        let cell = childInfoTableView.cellForRow(at: indexPath!) as! ChildInfoTableViewCell
+        childs[indexPath!.row].name = cell.childNameTF.text!
+        childs[indexPath!.row].old = cell.childAgeTF.text!
+        childInfoTableView.reloadData()
+        print(childs[(indexPath?.row)!])
+
+    }
+    
     func didPressAction(for cell: UITableViewCell) {
         let indexPath = childInfoTableView.indexPath(for: cell)
         childInfoTableView.beginUpdates()
@@ -170,6 +180,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource, UITextFiel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ChildInfoTableViewCell.indentifire, for: indexPath) as! ChildInfoTableViewCell
         cell.configure(delegate: self)
+        cell.childNameTF.text = childs[indexPath.row].name
+        cell.childAgeTF.text = childs[indexPath.row].old
     
         return cell
     }

@@ -8,6 +8,6 @@
 import Foundation
 
 struct User {
-    let name: String
-    let old: String
+    var name: String
+    var old: String
 }

@@ -9,6 +9,8 @@ import UIKit
 
 protocol CustomCellDelegate: AnyObject {
     func didPressAction(for cell: UITableViewCell)
+    func didPressReturn(for cell: UITableViewCell)
+
 }
 
 class ChildInfoTableViewCell: UITableViewCell, UITextFieldDelegate {
@@ -96,6 +98,7 @@ class ChildInfoTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        delegate?.didPressReturn(for: self)
         return true
     }
 }
