@@ -49,10 +49,7 @@ class ViewController: UIViewController {
         let userNameView = TextFieldFormView(label: userNameLabel, textField: userNameTF as! InsetTextField)
         let userOldView = TextFieldFormView(label: userOldLabel, textField: userOldTF)
         let childHeader = HeaderLabel(header: "Дети (макс. 5)")
-//        let button = UIButton()
-//        button.setTitle("Удалить", for: .normal)
-//        button.setTitleColor(.black, for: .normal)
-//        button.contentHorizontalAlignment = .left
+
         plusButton.customaizedImageButon(image: UIImage(systemName: "plus")!)
         plusButton.addTarget(self, action: #selector(pressedPlusButton), for: .touchUpInside)
         plusButton.isHidden = isHidden
@@ -65,9 +62,6 @@ class ViewController: UIViewController {
         plusButton.translatesAutoresizingMaskIntoConstraints = false
         childHeader.translatesAutoresizingMaskIntoConstraints = false
         allCleanButton.translatesAutoresizingMaskIntoConstraints = false
-
-//        button.translatesAutoresizingMaskIntoConstraints = false
-
         
         view.addSubview(userLabel)
         view.addSubview(userNameView)
@@ -75,9 +69,6 @@ class ViewController: UIViewController {
         view.addSubview(childHeader)
         view.addSubview(plusButton)
         view.addSubview(allCleanButton)
-
-//        view.addSubview(button)
-
         
         NSLayoutConstraint.activate([
             userLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
@@ -95,17 +86,8 @@ class ViewController: UIViewController {
         NSLayoutConstraint.activate([
             userOldView.topAnchor.constraint(equalTo: userNameView.bottomAnchor, constant: 16),
             userOldView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-//            userOldView.widthAnchor.constraint(equalToConstant: 200)
             userOldView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
         ])
-        
-//        NSLayoutConstraint.activate([
-//            button.topAnchor.constraint(equalTo: userNameView.bottomAnchor, constant: 16),
-//            button.leadingAnchor.constraint(equalTo: userOldView.trailingAnchor, constant: 16),
-//            button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-//            button.heightAnchor.constraint(equalToConstant: 80)
-//
-//        ])
         
         
         NSLayoutConstraint.activate([
@@ -205,8 +187,5 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource, UITextFiel
         textField.resignFirstResponder()
         return true
     }
-    
- 
-    
 }
 

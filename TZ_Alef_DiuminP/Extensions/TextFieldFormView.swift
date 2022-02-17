@@ -42,9 +42,8 @@ class TextFieldFormView: UIView {
             bottomAnchor.constraint(equalTo: textField.bottomAnchor),
             heightAnchor.constraint(equalToConstant: 80)
         ])
-
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

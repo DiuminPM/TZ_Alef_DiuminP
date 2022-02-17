@@ -10,7 +10,6 @@ import UIKit
 protocol CustomCellDelegate: AnyObject {
     func didPressAction(for cell: UITableViewCell)
     func didPressReturn(for cell: UITableViewCell)
-
 }
 
 class ChildInfoTableViewCell: UITableViewCell, UITextFieldDelegate {
@@ -36,7 +35,6 @@ class ChildInfoTableViewCell: UITableViewCell, UITextFieldDelegate {
         initialize()
     }
 
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -87,8 +85,6 @@ class ChildInfoTableViewCell: UITableViewCell, UITextFieldDelegate {
             contentView.topAnchor.constraint(equalTo: childNameTextFieldView.topAnchor),
             contentView.bottomAnchor.constraint(equalTo: childOldTextFieldView.bottomAnchor, constant: 16),
         ])
-        
-        
         
     }
     
