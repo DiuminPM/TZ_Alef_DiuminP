@@ -17,10 +17,10 @@
 		1F958E7927B98A11000E7666 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F958E7727B98A11000E7666 /* LaunchScreen.storyboard */; };
 		1F958E8127B98B75000E7666 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F958E8027B98B75000E7666 /* User.swift */; };
 		1F958E8527B98ED7000E7666 /* TextFieldFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F958E8427B98ED7000E7666 /* TextFieldFormView.swift */; };
-		1FDA205627BA46A600C04FA7 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA205527BA46A600C04FA7 /* CustomButton.swift */; };
 		1FDA205827BA540200C04FA7 /* UIButton + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA205727BA540200C04FA7 /* UIButton + Extensions.swift */; };
 		1FDA205A27BA589500C04FA7 /* UIImageView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA205927BA589500C04FA7 /* UIImageView + Extensions.swift */; };
 		1FDA205C27BABF3500C04FA7 /* ChildInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA205B27BABF3500C04FA7 /* ChildInfoTableViewCell.swift */; };
+		1FDA206027BCEDE600C04FA7 /* InsertableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA205F27BCEDE600C04FA7 /* InsertableTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,10 +36,10 @@
 		1F958E7A27B98A11000E7666 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F958E8027B98B75000E7666 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1F958E8427B98ED7000E7666 /* TextFieldFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFormView.swift; sourceTree = "<group>"; };
-		1FDA205527BA46A600C04FA7 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		1FDA205727BA540200C04FA7 /* UIButton + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extensions.swift"; sourceTree = "<group>"; };
 		1FDA205927BA589500C04FA7 /* UIImageView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extensions.swift"; sourceTree = "<group>"; };
 		1FDA205B27BABF3500C04FA7 /* ChildInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildInfoTableViewCell.swift; sourceTree = "<group>"; };
+		1FDA205F27BCEDE600C04FA7 /* InsertableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertableTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +109,7 @@
 			children = (
 				1F958E8427B98ED7000E7666 /* TextFieldFormView.swift */,
 				1F7A2E4927B9A335007CD04B /* HeaderLabel.swift */,
-				1FDA205527BA46A600C04FA7 /* CustomButton.swift */,
+				1FDA205F27BCEDE600C04FA7 /* InsertableTextField.swift */,
 				1F7A2E4627B998CB007CD04B /* UIKit */,
 			);
 			path = Extensions;
@@ -188,9 +188,9 @@
 				1F7A2E4A27B9A335007CD04B /* HeaderLabel.swift in Sources */,
 				1F7A2E4827B998F4007CD04B /* UILabel + extensions.swift in Sources */,
 				1F958E8527B98ED7000E7666 /* TextFieldFormView.swift in Sources */,
+				1FDA206027BCEDE600C04FA7 /* InsertableTextField.swift in Sources */,
 				1F958E8127B98B75000E7666 /* User.swift in Sources */,
 				1FDA205A27BA589500C04FA7 /* UIImageView + Extensions.swift in Sources */,
-				1FDA205627BA46A600C04FA7 /* CustomButton.swift in Sources */,
 				1F958E7127B98A0F000E7666 /* ViewController.swift in Sources */,
 				1F958E6D27B98A0F000E7666 /* AppDelegate.swift in Sources */,
 				1FDA205827BA540200C04FA7 /* UIButton + Extensions.swift in Sources */,

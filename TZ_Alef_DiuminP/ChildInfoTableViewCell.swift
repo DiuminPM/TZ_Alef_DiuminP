@@ -7,10 +7,22 @@
 
 import UIKit
 
+protocol CustomCellDelegate: AnyObject {
+    func didPressAction(for cell: UITableViewCell)
+}
+
 class ChildInfoTableViewCell: UITableViewCell, UITextFieldDelegate {
     
-    let childNameTF = UITextField()
-    let childAgeTF = UITextField()
+    weak var delegate: CustomCellDelegate?
+    
+    let childNameTF: UITextField = {
+        let textField = UITextField.textFieldWithInsets()
+        return textField
+    }()
+    let childAgeTF: UITextField = {
+        let textField = UITextField.textFieldWithInsets()
+        return textField
+    }()
     
     let childNameLabel = UILabel(text: "Имя")
     let childOldLabel = UILabel(text: "Возраст")
@@ -21,9 +33,14 @@ class ChildInfoTableViewCell: UITableViewCell, UITextFieldDelegate {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         initialize()
     }
+
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(delegate: CustomCellDelegate) {
+        self.delegate = delegate
     }
     
     private func initialize() {
@@ -33,11 +50,10 @@ class ChildInfoTableViewCell: UITableViewCell, UITextFieldDelegate {
         let childNameTextFieldView = TextFieldFormView(label: childNameLabel, textField: childNameTF)
         let childOldTextFieldView = TextFieldFormView(label: childOldLabel, textField: childAgeTF)
         
-        self.contentView
-        
         deleteButton.setTitle("Удалить", for: .normal)
-        deleteButton.setTitleColor(.black, for: .normal)
+        deleteButton.setTitleColor(.systemBlue, for: .normal)
         deleteButton.contentHorizontalAlignment = .left
+        deleteButton.addTarget(self, action: #selector(pressedDelete) , for: .touchUpInside)
         
         childNameTextFieldView.translatesAutoresizingMaskIntoConstraints = false
         childOldTextFieldView.translatesAutoresizingMaskIntoConstraints = false
@@ -48,7 +64,7 @@ class ChildInfoTableViewCell: UITableViewCell, UITextFieldDelegate {
         self.contentView.addSubview(deleteButton)
         
         NSLayoutConstraint.activate([
-            childNameTextFieldView.topAnchor.constraint(equalTo: self.topAnchor, constant: 24),
+            childNameTextFieldView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 24),
             childNameTextFieldView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             childNameTextFieldView.widthAnchor.constraint(equalToConstant: 200)
         ])
@@ -66,9 +82,20 @@ class ChildInfoTableViewCell: UITableViewCell, UITextFieldDelegate {
         ])
         
         NSLayoutConstraint.activate([
-            topAnchor.constraint(equalTo: childNameTextFieldView.topAnchor),
-            bottomAnchor.constraint(equalTo: childOldTextFieldView.bottomAnchor, constant: 16),
+            contentView.topAnchor.constraint(equalTo: childNameTextFieldView.topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: childOldTextFieldView.bottomAnchor, constant: 16),
         ])
         
+        
+        
+    }
+    
+    @objc private func pressedDelete() {
+        delegate?.didPressAction(for: self)
+        print("key")
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

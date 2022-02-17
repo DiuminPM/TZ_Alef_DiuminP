@@ -12,38 +12,60 @@ class ViewController: UIViewController {
     let userNameLabel = UILabel(text: "Имя")
     let userOldLabel = UILabel(text: "Возраст")
 
-    let userNameTF = UITextField()
-    let userOldTF = UITextField()
-    let plusButton = UIButton(foregroundColor: .systemBlue)
+    let userNameTF: UITextField = {
+        let textField = UITextField.textFieldWithInsets()
+        return textField
+    }()
+    let userOldTF: UITextField = {
+        let textField = UITextField.textFieldWithInsets()
+        return textField
+    }()
+    let plusButton = UIButton(title: "      Добавить ребенка", foregroundColor: .systemBlue)
+    var isHidden = false
+    let allCleanButton = UIButton(title: "Очистить", foregroundColor: .red)
     
     var childInfoTableView = UITableView()
     let cellIndentyfire = "Cell"
 
     let userHeader = "Персональные данные"
-
+    
+    var childs = [User]()
+    var childsInfo: [String: User] = [:]
+    var childCount = 0
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         initilized()
-        // Do any additional setup after loading the view.
     }
     
     private func initilized() {
+        userNameTF.delegate = self
+        userOldTF.delegate = self
+        
+        childInfoTableView.delegate = self
+        childInfoTableView.dataSource = self
+        
         let userLabel = HeaderLabel(header: userHeader)
-        let userNameView = TextFieldFormView(label: userNameLabel, textField: userNameTF)
+        let userNameView = TextFieldFormView(label: userNameLabel, textField: userNameTF as! InsetTextField)
         let userOldView = TextFieldFormView(label: userOldLabel, textField: userOldTF)
         let childHeader = HeaderLabel(header: "Дети (макс. 5)")
 //        let button = UIButton()
 //        button.setTitle("Удалить", for: .normal)
 //        button.setTitleColor(.black, for: .normal)
 //        button.contentHorizontalAlignment = .left
-        
-        plusButton.customaizedImageButon(image: UIImage(systemName: "plus")!, title: "Добавить ребенка", foregroundColor: .systemBlue)
+        plusButton.customaizedImageButon(image: UIImage(systemName: "plus")!)
+        plusButton.addTarget(self, action: #selector(pressedPlusButton), for: .touchUpInside)
+        plusButton.isHidden = isHidden
+        allCleanButton.setTitle("Очистить", for: .normal)
+        allCleanButton.addTarget(self, action: #selector(pressedDeleteButton), for: .touchUpInside)
         
         userLabel.translatesAutoresizingMaskIntoConstraints = false
         userNameView.translatesAutoresizingMaskIntoConstraints = false
         userOldView.translatesAutoresizingMaskIntoConstraints = false
         plusButton.translatesAutoresizingMaskIntoConstraints = false
         childHeader.translatesAutoresizingMaskIntoConstraints = false
+        allCleanButton.translatesAutoresizingMaskIntoConstraints = false
+
 //        button.translatesAutoresizingMaskIntoConstraints = false
 
         
@@ -52,6 +74,8 @@ class ViewController: UIViewController {
         view.addSubview(userOldView)
         view.addSubview(childHeader)
         view.addSubview(plusButton)
+        view.addSubview(allCleanButton)
+
 //        view.addSubview(button)
 
         
@@ -87,14 +111,15 @@ class ViewController: UIViewController {
         NSLayoutConstraint.activate([
             childHeader.topAnchor.constraint(equalTo: userOldView.bottomAnchor, constant: 16),
             childHeader.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            childHeader.heightAnchor.constraint(equalToConstant: 60)
+            childHeader.heightAnchor.constraint(equalToConstant: 50)
         ])
         
         NSLayoutConstraint.activate([
             plusButton.topAnchor.constraint(equalTo: userOldView.bottomAnchor, constant: 16),
             plusButton.leadingAnchor.constraint(equalTo: childHeader.trailingAnchor, constant: 16),
             plusButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            plusButton.heightAnchor.constraint(equalToConstant: 60)
+            plusButton.heightAnchor.constraint(equalToConstant: 50),
+            plusButton.widthAnchor.constraint(equalToConstant: 200)
         ])
         
         childInfoTableView = UITableView(frame: .zero, style: .plain)
@@ -103,6 +128,7 @@ class ViewController: UIViewController {
         
         self.childInfoTableView.delegate = self
         self.childInfoTableView.dataSource = self
+        self.childInfoTableView.separatorInset.left = 0
         
         childInfoTableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(childInfoTableView)
@@ -111,7 +137,15 @@ class ViewController: UIViewController {
             childInfoTableView.topAnchor.constraint(equalTo: childHeader.bottomAnchor, constant: 16),
             childInfoTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             childInfoTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            childInfoTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            allCleanButton.topAnchor.constraint(equalTo: childInfoTableView.bottomAnchor, constant: 16),
+            allCleanButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            allCleanButton.heightAnchor.constraint(equalToConstant: 50),
+            allCleanButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -32),
+            allCleanButton.widthAnchor.constraint(equalToConstant: 200)
+
         ])
 
     }
@@ -119,19 +153,45 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension ViewController: UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, CustomCellDelegate {
+    func didPressAction(for cell: UITableViewCell) {
+        let indexPath = childInfoTableView.indexPath(for: cell)
+        childInfoTableView.beginUpdates()
+        childInfoTableView.deleteRows(at: [indexPath!], with: .automatic)
+        childs.remove(at: indexPath!.row)
+        plusButton.isHidden = false
+        childInfoTableView.endUpdates()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return childs.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ChildInfoTableViewCell.indentifire, for: indexPath) as! ChildInfoTableViewCell
-        cell.deleteButton.addTarget(self, action: #selector(pressedDeleteButton), for: .touchUpInside)
+        cell.configure(delegate: self)
+    
         return cell
     }
     
+    
     @objc private func pressedDeleteButton() {
-    print("Ok")
+        childCount = 0
+        childInfoTableView.reloadData()
+        plusButton.isHidden = false
+    }
+    
+    @objc private func pressedPlusButton() {
+        childs.append(User(name: "", old: ""))
+        childInfoTableView.reloadData()
+        if childs.count == 5 {
+            plusButton.isHidden = true
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
  
