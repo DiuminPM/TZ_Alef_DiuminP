@@ -30,8 +30,6 @@ class ViewController: UIViewController {
     let userHeader = "Персональные данные"
     
     var childs = [User]()
-    var childsInfo: [String: User] = [:]
-    var childCount = 0
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -129,10 +127,7 @@ class ViewController: UIViewController {
             allCleanButton.widthAnchor.constraint(equalToConstant: 200)
 
         ])
-
     }
-
-
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, CustomCellDelegate {
@@ -141,8 +136,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource, UITextFiel
         let cell = childInfoTableView.cellForRow(at: indexPath!) as! ChildInfoTableViewCell
         childs[indexPath!.row].name = cell.childNameTF.text!
         childs[indexPath!.row].old = cell.childAgeTF.text!
-        childInfoTableView.reloadData()
-        print(childs[(indexPath?.row)!])
+        print(childs[0].name)
+//        childInfoTableView.reloadData()
 
     }
     
@@ -162,21 +157,36 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource, UITextFiel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ChildInfoTableViewCell.indentifire, for: indexPath) as! ChildInfoTableViewCell
         cell.configure(delegate: self)
-        cell.childNameTF.text = childs[indexPath.row].name
         cell.childAgeTF.text = childs[indexPath.row].old
+        cell.childNameTF.text = childs[indexPath.row].name
+
     
         return cell
     }
     
     
     @objc private func pressedDeleteButton() {
-        childs = []
-        childInfoTableView.reloadData()
-        plusButton.isHidden = false
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        let settingsAction = UIAlertAction(title: "Сбросить данные", style: .default) { alert in
+            self.childs = []
+            self.childInfoTableView.reloadData()
+            self.plusButton.isHidden = false
+            self.userNameTF.text = ""
+            self.userOldTF.text = ""
+            
+        }
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        
+        alert.addAction(settingsAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
     }
     
     @objc private func pressedPlusButton() {
-        childs.append(User(name: "", old: ""))
+       
+        let user = User(name: "", old: "")
+        childs.append(user)
         childInfoTableView.reloadData()
         if childs.count == 5 {
             plusButton.isHidden = true
