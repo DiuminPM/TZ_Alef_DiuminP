@@ -170,7 +170,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource, UITextFiel
     
     
     @objc private func pressedDeleteButton() {
-        childCount = 0
+        childs = []
         childInfoTableView.reloadData()
         plusButton.isHidden = false
     }
