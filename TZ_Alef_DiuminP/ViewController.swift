@@ -125,7 +125,6 @@ class ViewController: UIViewController {
             allCleanButton.heightAnchor.constraint(equalToConstant: 50),
             allCleanButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -32),
             allCleanButton.widthAnchor.constraint(equalToConstant: 200)
-
         ])
     }
 }
@@ -137,8 +136,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource, UITextFiel
         childs[indexPath!.row].name = cell.childNameTF.text!
         childs[indexPath!.row].old = cell.childAgeTF.text!
         print(childs[0].name)
-//        childInfoTableView.reloadData()
-
     }
     
     func didPressAction(for cell: UITableViewCell) {
