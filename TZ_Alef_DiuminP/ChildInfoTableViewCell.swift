@@ -10,6 +10,7 @@ import UIKit
 protocol CustomCellDelegate: AnyObject {
     func didPressAction(for cell: UITableViewCell)
     func didPressReturn(for cell: UITableViewCell)
+    func didBeginEditing(for cell: UITableViewCell)
 }
 
 class ChildInfoTableViewCell: UITableViewCell, UITextFieldDelegate {
@@ -85,12 +86,13 @@ class ChildInfoTableViewCell: UITableViewCell, UITextFieldDelegate {
             contentView.topAnchor.constraint(equalTo: childNameTextFieldView.topAnchor),
             contentView.bottomAnchor.constraint(equalTo: childOldTextFieldView.bottomAnchor, constant: 16),
         ])
-        
     }
     
     @objc private func pressedDelete() {
         delegate?.didPressAction(for: self)
-        print("key")
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        delegate?.didBeginEditing(for: self)
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

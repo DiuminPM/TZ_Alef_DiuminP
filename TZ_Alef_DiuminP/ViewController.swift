@@ -130,12 +130,16 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, CustomCellDelegate {
+    func didBeginEditing(for cell: UITableViewCell) {
+        self.view.frame.origin.y = -250
+    }
+    
     func didPressReturn(for cell: UITableViewCell) {
         let indexPath = childInfoTableView.indexPath(for: cell)
         let cell = childInfoTableView.cellForRow(at: indexPath!) as! ChildInfoTableViewCell
         childs[indexPath!.row].name = cell.childNameTF.text!
         childs[indexPath!.row].old = cell.childAgeTF.text!
-        print(childs[0].name)
+        self.view.frame.origin.y = 0
     }
     
     func didPressAction(for cell: UITableViewCell) {
