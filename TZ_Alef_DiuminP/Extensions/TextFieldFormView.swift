@@ -21,8 +21,8 @@ class TextFieldFormView: UIView {
         self.addSubview(textField)
 
         self.layer.cornerRadius = 10
+        self.layer.borderColor?.copy(alpha: 0.2)
         self.layer.borderColor = UIColor.secondarySystemBackground.cgColor
-        self.layer.borderColor?.copy(alpha: 0.1)
         self.layer.borderWidth = 1
 
         NSLayoutConstraint.activate([
@@ -43,6 +43,13 @@ class TextFieldFormView: UIView {
             bottomAnchor.constraint(equalTo: textField.bottomAnchor),
             heightAnchor.constraint(equalToConstant: 80)
         ])
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        self.layer.borderColor = UIColor.secondarySystemBackground.cgColor
+        self.layer.borderColor?.copy(alpha: 0.2)
+        print("смена темы")
     }
     
     required init?(coder: NSCoder) {
