@@ -49,7 +49,6 @@ class TextFieldFormView: UIView {
         super.traitCollectionDidChange(previousTraitCollection)
         self.layer.borderColor = UIColor.secondarySystemBackground.cgColor
         self.layer.borderColor?.copy(alpha: 0.2)
-        print("смена темы")
     }
     
     required init?(coder: NSCoder) {
