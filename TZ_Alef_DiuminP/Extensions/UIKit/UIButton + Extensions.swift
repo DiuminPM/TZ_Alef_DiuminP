@@ -14,7 +14,7 @@ extension UIButton {
         contentHorizontalAlignment = .center
         self.setTitle(title, for: .normal)
         self.setTitleColor(foregroundColor, for: .normal)
-        self.backgroundColor = .white
+        self.backgroundColor = .systemBackground
         self.layer.cornerRadius = 25
         self.layer.borderColor = foregroundColor.cgColor
         self.layer.borderWidth = 3

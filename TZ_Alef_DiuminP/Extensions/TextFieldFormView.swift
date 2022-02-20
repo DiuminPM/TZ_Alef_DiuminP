@@ -21,7 +21,8 @@ class TextFieldFormView: UIView {
         self.addSubview(textField)
 
         self.layer.cornerRadius = 10
-        self.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 0.1)
+        self.layer.borderColor = UIColor.secondarySystemBackground.cgColor
+        self.layer.borderColor?.copy(alpha: 0.1)
         self.layer.borderWidth = 1
 
         NSLayoutConstraint.activate([
